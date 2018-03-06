@@ -1,0 +1,24 @@
+<button type="button" class="btn" style="float: right;" *ngIf="addGroup" (click)="onCreate()">+ Create a Group</button>
+<div class="container" *ngIf="!addGroup">
+  <div class="row">
+    <div class="col-md-8">
+    </div>
+    <div class="col-md-4">
+      <div class="list-group">
+        <div class="input-group">
+          <input type="text" class="form-control" placeholder="Group Title" #groupTitle>
+        </div>
+        <br>
+        <button type="button" class="btn" (click)="onCreateGroup(groupTitle.value)">Create</button>
+        <br>
+      </div>
+      <div class="card" *ngFor="let group of noteService.groups">
+        <div class="card-block">
+          <h5 class="card-title">
+              {{group.label}}
+          </h5>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
