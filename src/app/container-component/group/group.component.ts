@@ -1,5 +1,5 @@
 import { Component, OnInit, Output, EventEmitter, Input } from '@angular/core';
-import { NotesService } from '../../services/notes.service';
+import { Group } from '../../models/note.model';
 
 @Component({
   selector: 'app-group',
@@ -8,10 +8,12 @@ import { NotesService } from '../../services/notes.service';
 })
 export class GroupComponent implements OnInit {
 
-addGroup = true;
+@Input() groups: Group[];
 @Output() createGroup = new EventEmitter;
 
-  constructor(public noteService: NotesService) { }
+addGroup = true;
+
+  constructor() { }
 
   ngOnInit() {
   }

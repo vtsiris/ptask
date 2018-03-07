@@ -1,3 +1,5 @@
-<app-note (createNote)="onCreateNote($event)" (addNoteEmitter)="onAddNoteEmitter()"></app-note>
-<app-group *ngIf="showGroups" (createGroup)="onCreateGroup($event)" class="col-md-4"></app-group>
-<app-note-preview class="col-md-4"></app-note-preview>
+<app-note  (createNote)="onCreateNote($event)" (addNoteEmitter)="onAddNoteEmitter()"></app-note>
+<ng-container *ngIf="showGroups">
+  <app-group *ngFor="let group of groups" [groups]="group" (createGroup)="onCreateGroup($event)" ></app-group>
+</ng-container>
+<app-note-preview *ngFor="let note of notes" [notes]="notes"></app-note-preview>

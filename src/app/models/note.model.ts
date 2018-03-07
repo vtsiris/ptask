@@ -6,7 +6,7 @@ export class Note {
 
 export class Group {
   id: number;
-  label: string;
+  name: string;
 }
 
 export class GroupNote {

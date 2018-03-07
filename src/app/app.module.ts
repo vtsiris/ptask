@@ -6,7 +6,6 @@ import { AppComponent } from './app.component';
 import { ContainerComponentComponent } from './container-component/container-component.component';
 import { NoteComponent } from './container-component/note/note.component';
 import { GroupComponent } from './container-component/group/group.component';
-import { NotesService } from './services/notes.service';
 import { NotePreviewComponent } from './container-component/note-preview/note-preview.component';
 
 
@@ -23,7 +22,7 @@ import { NotePreviewComponent } from './container-component/note-preview/note-pr
     FormsModule,
     MultiselectDropdownModule,
   ],
-  providers: [NotesService],
+  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

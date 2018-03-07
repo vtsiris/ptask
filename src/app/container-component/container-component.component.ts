@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import {Note, Group, GroupNote} from '../models/note.model';
-import { NotesService } from '../services/notes.service';
 
 @Component({
   selector: 'app-container-component',
@@ -10,23 +9,29 @@ import { NotesService } from '../services/notes.service';
 export class ContainerComponentComponent implements OnInit {
 
   showGroups = false;
-  groups = [];
+  notes: Note[] = [];
+  noteId = 0;
+  groups: Group[] = [];
+  groupId = 0;
 
-  constructor(private noteService: NotesService) { }
+  constructor() { }
 
   ngOnInit() {
-    this.groups = this.noteService.groups.map(x => {
-      return {id: x.id, name: x.label};
-    });
+
   }
 
   onCreateGroup(groupTitle: string) {
-    this.noteService.createGroup(groupTitle);
-    this.groups = this.noteService.groups;
+    this.groupId += 1;
+    this.groups.push({id: this.noteId, name: groupTitle});
+    console.log(groupTitle);
+    // this.noteService.createGroup(groupTitle);
+    // this.groups = this.noteService.groups;
   }
 
   onCreateNote(obje: any) {
-    this.noteService.createNote(obje.postTitle, obje.postDescription);
+    this.noteId += 1;
+    this.notes.push({id: this.noteId, title: obje.postTitle, description: obje.postDescription});
+    console.log(this.notes);
   }
 
   onAddNoteEmitter() {

@@ -1,5 +1,4 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
-import { NotesService } from '../../services/notes.service';
 import { IMultiSelectOption } from 'angular-2-dropdown-multiselect';
 import { Group } from '../../models/note.model';
 

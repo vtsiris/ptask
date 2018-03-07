@@ -1,6 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { NotesService } from '../../services/notes.service';
 import { IMultiSelectOption } from 'angular-2-dropdown-multiselect';
+import { Note } from '../../models/note.model';
+import { ContainerComponentComponent } from '../container-component.component';
 
 @Component({
   selector: 'app-note-preview',
@@ -9,10 +10,12 @@ import { IMultiSelectOption } from 'angular-2-dropdown-multiselect';
 })
 export class NotePreviewComponent implements OnInit {
 
+  @Input() notes: Note[];
+
   optionsModel: number[];
   myOptions: IMultiSelectOption[];
 
-  constructor(public noteService: NotesService) { }
+  constructor() { }
 
   ngOnInit() {
     this.myOptions = [

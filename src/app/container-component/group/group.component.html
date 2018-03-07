@@ -18,10 +18,10 @@
         <button type="button" class="btn" (click)="onCreateGroup(groupTitle.value)">Create</button>
         <br>
       </div>
-      <div class="card" *ngFor="let group of noteService.groups">
+      <div class="card" *ngFor="let group of groups">
         <div class="card-block">
           <h5 class="card-title">
-            {{group.label}}
+            {{group.name}}
           </h5>
         </div>
       </div>
