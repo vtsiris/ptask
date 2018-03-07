@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+import { GroupComponent } from '../group/group.component';
+import { GroupNote } from '../../models/note.model';
 
 @Component({
   selector: 'app-groupnote',
@@ -6,6 +8,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./groupnote.component.css']
 })
 export class GroupnoteComponent implements OnInit {
+
+  @Input() groupnotes: GroupNote[];
 
   constructor() { }
 

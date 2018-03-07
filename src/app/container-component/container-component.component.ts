@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, group } from '@angular/core';
 import {Note, Group, GroupNote} from '../models/note.model';
 
 @Component({
@@ -23,7 +23,7 @@ export class ContainerComponentComponent implements OnInit {
 
   onCreateGroup(groupTitle: string) {
     this.groupId += 1;
-    this.groups.push({id: this.noteId, name: groupTitle});
+    this.groups.push({id: this.groupId, name: groupTitle});
     console.log(groupTitle);
   }
 
@@ -37,9 +37,10 @@ export class ContainerComponentComponent implements OnInit {
  this.showGroups = true;
   }
 
-  onAddGroup(id: number) {
-    this.groupnotes.push();
-    console.log(id);
+  // tslint:disable-next-line:no-shadowed-variable
+  onAddGroup(note: Note, group: Group) {
+    this.groupnotes.push({group: group, note: note});
+    console.log(this.groupnotes);
   }
 
 }

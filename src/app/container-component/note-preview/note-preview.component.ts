@@ -28,7 +28,7 @@ export class NotePreviewComponent implements OnInit {
     // console.log(this.optionsModel);
 }
 
-onAddGroup(id: number) {
-  this.addGroup.emit(id);
+onAddGroup(note: Note, group: Group) {
+  this.addGroup.emit({note, group});
 }
 }

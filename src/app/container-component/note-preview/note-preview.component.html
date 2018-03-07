@@ -7,8 +7,8 @@
           <hr>
           <p class="card-text text-center">{{note.description}}</p>
           <hr>
-          <p class="card-text" *ngFor="let group of groups; let i = index" >
-              <button type="button" class="btn" style="float: right;"(click)="onAddGroup(i)">{{group.name}}</button>
+          <p class="card-text" *ngFor="let group of groups;" >
+              <button type="button" class="btn" style="float: right;"(click)="onAddGroup(note, group)">{{group.name}}</button>
           <!-- <ss-multiselect-dropdown [options]="myOptions"  [(ngModel)]="groups" align="right" (ngModelChange)="onChange($event)"></ss-multiselect-dropdown> -->
             </p>
           </div>
