@@ -24,8 +24,6 @@ export class ContainerComponentComponent implements OnInit {
     this.groupId += 1;
     this.groups.push({id: this.noteId, name: groupTitle});
     console.log(groupTitle);
-    // this.noteService.createGroup(groupTitle);
-    // this.groups = this.noteService.groups;
   }
 
   onCreateNote(obje: any) {

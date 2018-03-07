@@ -1,6 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { IMultiSelectOption } from 'angular-2-dropdown-multiselect';
-import { Note } from '../../models/note.model';
+import { Note, Group } from '../../models/note.model';
 import { ContainerComponentComponent } from '../container-component.component';
 
 @Component({
@@ -11,21 +11,19 @@ import { ContainerComponentComponent } from '../container-component.component';
 export class NotePreviewComponent implements OnInit {
 
   @Input() notes: Note[];
+  @Input() groups: Group[];
 
-  optionsModel: number[];
-  myOptions: IMultiSelectOption[];
+  // optionsModel: number[];
+  // myOptions: IMultiSelectOption[];
 
   constructor() { }
 
   ngOnInit() {
-    this.myOptions = [
-      { id: 1, name: 'Option 1' },
-      { id: 2, name: 'Option 2' },
-  ];
+    // this.myOptions = this.groups;
   }
 
   onChange() {
-    console.log(this.optionsModel);
+    // console.log(this.optionsModel);
 }
 
 }

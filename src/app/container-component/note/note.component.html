@@ -7,11 +7,11 @@
       <button type="button" class="btn btn-primary" *ngIf="addNote" (click)="onAddNote()">+</button>
       <div class="list-group" *ngIf="!addNote">
         <div class="input-group input-group-lg">
-          <input type="text" class="form-control" placeholder="Post Title" aria-describedby="sizing-addon2" #postTitle>
+          <input type="text" class="form-control" placeholder="Post Title"  #postTitle>
         </div>
         <br>
         <div class="input-group input-group-lg">
-          <input type="text" class="form-control" placeholder="Post Description" aria-describedby="sizing-addon2" #postDescription>
+          <input type="text" class="form-control" placeholder="Post Description"  #postDescription>
         </div>
         <br>
         <button type="button" class="btn btn-primary" (click)="onCreateNote(postTitle.value,postDescription.value)">Create</button>
