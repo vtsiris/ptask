@@ -13,6 +13,7 @@ export class ContainerComponentComponent implements OnInit {
   noteId = 0;
   groups: Group[] = [];
   groupId = 0;
+  groupnotes: GroupNote[] = [];
 
   constructor() { }
 
@@ -36,5 +37,9 @@ export class ContainerComponentComponent implements OnInit {
  this.showGroups = true;
   }
 
+  onAddGroup(id: number) {
+    this.groupnotes.push();
+    console.log(id);
+  }
 
 }

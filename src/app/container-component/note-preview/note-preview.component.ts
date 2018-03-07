@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { IMultiSelectOption } from 'angular-2-dropdown-multiselect';
 import { Note, Group } from '../../models/note.model';
 import { ContainerComponentComponent } from '../container-component.component';
@@ -13,6 +13,8 @@ export class NotePreviewComponent implements OnInit {
   @Input() notes: Note[];
   @Input() groups: Group[];
 
+  @Output() addGroup = new EventEmitter;
+
   // optionsModel: number[];
   // myOptions: IMultiSelectOption[];
 
@@ -26,4 +28,7 @@ export class NotePreviewComponent implements OnInit {
     // console.log(this.optionsModel);
 }
 
+onAddGroup(id: number) {
+  this.addGroup.emit(id);
+}
 }

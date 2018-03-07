@@ -2,6 +2,7 @@
 
 <app-group *ngIf="showGroups" [groups]="groups" (createGroup)="onCreateGroup($event)"></app-group>
 
-<app-note-preview [notes]="notes" [groups]="groups"></app-note-preview>
+<app-note-preview (addGroup)="onAddGroup($event) "[notes]="notes" [groups]="groups"></app-note-preview>
+<br>
 
 <app-groupnote></app-groupnote>
