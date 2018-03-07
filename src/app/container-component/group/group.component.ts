@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter, Input } from '@angular/core';
 import { NotesService } from '../../services/notes.service';
 
 @Component({
@@ -8,17 +8,20 @@ import { NotesService } from '../../services/notes.service';
 })
 export class GroupComponent implements OnInit {
 
-  addGroup = true;
+addGroup = true;
+@Output() createGroup = new EventEmitter;
 
   constructor(public noteService: NotesService) { }
 
   ngOnInit() {
   }
 
-  onCreate() {
+  onAddGroup() {
     this.addGroup = false;
   }
+
   onCreateGroup(groupTitle: string) {
-    this.noteService.createGroup(groupTitle);
+    this.createGroup.emit(groupTitle);
   }
+
 }

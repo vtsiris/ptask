@@ -16,30 +16,6 @@
         <br>
         <button type="button" class="btn btn-primary" (click)="onCreateNote(postTitle.value,postDescription.value)">Create</button>
         <br>
-      <app-group></app-group>
-      </div>
-      <br>
-      <div class="card" *ngFor="let note of noteService.notes">
-        <div class="card-block">
-          <h4 class="card-title">{{note.title}}</h4>
-          <hr>
-          <p class="card-text">{{note.description}}</p>
-
-          <ss-multiselect-dropdown [options]="groups"></ss-multiselect-dropdown>
-
-
-
-          <!-- <div class="dropdown">
-            <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown" style="float: right;">
-              Dropdown Example
-            </button>
-            <div class="dropdown-menu">
-                <a href="#">Implement grouping logic</a>
-                <a href="#">Implement grouping logic</a>
-            </div>
-          </div> -->
-          <br>
-        </div>
       </div>
     </div>
   </div>

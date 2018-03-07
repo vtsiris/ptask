@@ -10,6 +10,6 @@ export class Group {
 }
 
 export class GroupNote {
-  groupid: number;
-  noteid: number;
+  group: Group;
+  note: Note;
 }

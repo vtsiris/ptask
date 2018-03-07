@@ -16,5 +16,6 @@ export class NotesService {
   createGroup(groupTitle: string) {
     this.groupId += 1;
     this.groups.push({id: this.noteId, label: groupTitle});
+    console.log(groupTitle);
   }
 }

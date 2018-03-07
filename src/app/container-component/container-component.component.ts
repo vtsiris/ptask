@@ -9,11 +9,29 @@ import { NotesService } from '../services/notes.service';
 })
 export class ContainerComponentComponent implements OnInit {
 
+  showGroups = false;
+  groups = [];
 
-  constructor() { }
+  constructor(private noteService: NotesService) { }
 
   ngOnInit() {
-
+    this.groups = this.noteService.groups.map(x => {
+      return {id: x.id, name: x.label};
+    });
   }
+
+  onCreateGroup(groupTitle: string) {
+    this.noteService.createGroup(groupTitle);
+    this.groups = this.noteService.groups;
+  }
+
+  onCreateNote(obje: any) {
+    this.noteService.createNote(obje.postTitle, obje.postDescription);
+  }
+
+  onAddNoteEmitter() {
+ this.showGroups = true;
+  }
+
 
 }

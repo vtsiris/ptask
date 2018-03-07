@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { NotesService } from '../../services/notes.service';
 import { IMultiSelectOption } from 'angular-2-dropdown-multiselect';
 import { Group } from '../../models/note.model';
@@ -12,21 +12,25 @@ import { Group } from '../../models/note.model';
 })
 export class NoteComponent implements OnInit {
 
-  addNote = true;
-  groups: Group[] = [];
+  @Output() createNote = new EventEmitter;
+  @Output() addNoteEmitter = new EventEmitter;
 
-  constructor(public noteService: NotesService) { }
+  addNote = true;
+
+
+  constructor() {   }
 
   ngOnInit() {
-    this.groups = this.noteService.groups;
+
   }
 
   onAddNote() {
     this.addNote = false;
+    this.addNoteEmitter.emit();
   }
 
   onCreateNote(postTitle: string, postDescription: string) {
-    this.noteService.createNote(postTitle, postDescription);
+    this.createNote.emit({postTitle, postDescription});
   }
 
 }

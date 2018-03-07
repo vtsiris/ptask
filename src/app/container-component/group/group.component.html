@@ -1,6 +1,12 @@
-<button type="button" class="btn" style="float: right;" *ngIf="addGroup" (click)="onCreate()">+ Create a Group</button>
-<div class="container" *ngIf="!addGroup">
-  <div class="row">
+<div class="container">
+  <div class="row" *ngIf="addGroup">
+    <div class="col-md-8">
+    </div>
+    <div class="col-md-4">
+      <button type="button" class="btn" style="float: right;" (click)="onAddGroup()">+ Create a Group</button>
+    </div>
+  </div>
+  <div class="row" *ngIf="!addGroup">
     <div class="col-md-8">
     </div>
     <div class="col-md-4">
@@ -15,7 +21,7 @@
       <div class="card" *ngFor="let group of noteService.groups">
         <div class="card-block">
           <h5 class="card-title">
-              {{group.label}}
+            {{group.label}}
           </h5>
         </div>
       </div>
