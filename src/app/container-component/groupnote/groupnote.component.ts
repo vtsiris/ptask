@@ -11,9 +11,15 @@ export class GroupnoteComponent implements OnInit {
 
   @Input() groupnotes: GroupNote[];
 
+
   constructor() { }
 
   ngOnInit() {
   }
+
+  // readColor(value) {
+  //   this.color = value.srcElement.style['background-color'];
+  //   console.log(value.srcElement.stylep['bacgkround-color']);
+  // }
 
 }
