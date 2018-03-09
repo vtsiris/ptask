@@ -22,4 +22,10 @@ export class GroupnoteComponent implements OnInit {
  this.groupnotes.find(x => x.group.id === groupid).group.color = color;
  }
 
+ setCompleted() {
+
+ }
+ setRemove() {
+
+ }
 }
