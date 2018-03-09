@@ -1,48 +1,39 @@
 <div class="container">
-  <div class="row d-inline-block" *ngFor="let gn of groupnotes">
+  <div class="row d-inline-block" *ngFor="let group of groups">
     <div class="col-md-12 ">
       <div class="col-md-12">
         <div class="card">
           <div class="card-block">
             <h4 class="card-title text-center">
-              {{gn.group.name}}
+              {{group.name}}
             </h4>
             <hr>
-            <div class="card-block" [ngStyle]="{'background-color':gn.group.color}">
+            <div class="card-block" *ngFor="let note of group.notes" [ngStyle]="{'background-color':group.color}">
               <h6 class="card-title">
-                {{gn.note.title}}
+                {{note.title}}
+                <br>
+                <br>
+                <div class="btn-group" style="float: left;">
+                    <button style="background-color:green" type="button" class="btn btn-default" (click)="setCompleted(group,note)">✓</button>
+                    <button style="background-color:red" type="button" class="btn btn-default" (click)="setRemove(group, note)">X</button>
+                  </div>
               </h6>
               <hr>
-              <p class = "card-text text-center">
-                {{gn.note.description}}
+              <p class="card-text text-center">
+                {{note.description}}
               </p>
             </div>
             <div class="btn-group" style="float: right;">
-              <button style="background-color:purple" type="button" class="btn btn-default" (click)="readColor('purple',gn.group.id)">
+              <button style="background-color:purple" type="button" class="btn btn-default" (click)="readColor('purple',group.id)">
                 <span class="dot"></span>
               </button>
-              <button style="background-color:yellow" type="button" class="btn btn-default" (click)="readColor('yellow',gn.group.id)">
+              <button style="background-color:yellow" type="button" class="btn btn-default" (click)="readColor('yellow',group.id)">
                 <span class="dot"></span>
               </button>
-              <button style="background-color:orange" type="button" class="btn btn-default" (click)="readColor('orange',gn.group.id)">
+              <button style="background-color:orange" type="button" class="btn btn-default" (click)="readColor('orange',group.id)">
                 <span class="dot"></span>
               </button>
-              <!-- <button  type="button" class="btn btn-success btn-xs"(click)="readColor('green',gn.group.id)" >Green</button>
-                  <button  type="button" class="btn btn-warning btn-xs" (click)="readColor('yellow',gn.group.id)">Yellow</button>
-                  <button  type="button" class="btn btn-danger btn-xs" (click)="readColor('red',gn.group.id)">Red</button>  -->
               <hr>
-            </div>
-            <br>
-          <br>
-            <div class="btn-group" style="float: right;">
-              <button type="button" class="btn btn-default" (click)="setCompleted()">
-                <span class="dot">✓</span>
-              </button>
-            </div>
-            <div class="btn-group" style="float: right;">
-              <button type="button" class="btn btn-default" (click)="setRemove()">
-                <span class="dot">X</span>
-              </button>
             </div>
           </div>
         </div>

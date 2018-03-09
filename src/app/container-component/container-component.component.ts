@@ -1,5 +1,5 @@
 import { Component, OnInit, group } from '@angular/core';
-import {Note, Group, GroupNote} from '../models/note.model';
+import {Note, Group} from '../models/note.model';
 
 @Component({
   selector: 'app-container-component',
@@ -13,7 +13,7 @@ export class ContainerComponentComponent implements OnInit {
   noteId = 0;
   groups: Group[] = [];
   groupId = 0;
-  groupnotes: GroupNote[] = [];
+  completedNotes = 0;
 
   constructor() { }
 
@@ -28,7 +28,6 @@ export class ContainerComponentComponent implements OnInit {
     group.id = this.groupId;
     group.name = groupTitle;
     this.groups.push(group);
-    // this.groups.push({id: this.groupId, name: groupTitle});
     console.log(groupTitle);
   }
 
@@ -39,7 +38,6 @@ export class ContainerComponentComponent implements OnInit {
     note.title = obje.postTitle;
     note.description = obje.postDescription;
     this.notes.push(note);
-    // this.notes.push({id: this.noteId, title: obje.postTitle, description: obje.postDescription});
     console.log(this.notes);
   }
 
@@ -48,11 +46,33 @@ export class ContainerComponentComponent implements OnInit {
   }
 
 
-  onAddGroup(obje: any) {
-    // obje.note.group = obje.group;
-    this.groupnotes.push({group: obje.group, note: obje.note});
-    console.log(this.notes);
+  onAddNoteToGroup(obje: any) {
+   const groupSel = this.groups.find(c => c.id === obje.group.id);
+   console.log('onAddNoteToGroup' + groupSel);
+    const note = new Note();
+    note.id = obje.note.id;
+    note.title = obje.note.title;
+    note.description = obje.note.description;
+    groupSel.notes.push(note);
+
+
+    // if (groupSel.notes.findIndex(c => c.id === obje.note.id) < 0 ) {
+    //   groupSel.notes.push(obje.note);
+    // }
+
   }
 
+  onSetCompleted(obje: any) {
+    this.completedNotes += 1;
+    const groupSel = this.groups.find(c => c.id === obje.group.id);
+    groupSel.notes.splice(obje.note.id, 1);
+  }
 
+  onSetRemoved(obje: any) {
+    const groupSel = this.groups.find(c => c.id === obje.group.id);
+    groupSel.notes.splice(obje.note.id, 1);
+
+    // const noteSel = groupSel.notes.find(c => c.id === obje.note.id);
+    // groups.find(c => c.id === obje.group.id).notes.find(c => c.id === obje.note.id);
+  }
 }

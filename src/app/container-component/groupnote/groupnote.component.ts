@@ -1,6 +1,6 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { GroupComponent } from '../group/group.component';
-import { GroupNote } from '../../models/note.model';
+import { Group, Note } from '../../models/note.model';
 
 @Component({
   selector: 'app-groupnote',
@@ -9,8 +9,11 @@ import { GroupNote } from '../../models/note.model';
 })
 export class GroupnoteComponent implements OnInit {
 
-  @Input() groupnotes: GroupNote[];
-
+  // tslint:disable-next-line:no-output-on-prefix
+  @Output() onSetComplete = new EventEmitter;
+  // tslint:disable-next-line:no-output-on-prefix
+  @Output() onSetRemove = new EventEmitter;
+  @Input() groups: Group[];
 
   constructor() { }
 
@@ -19,13 +22,14 @@ export class GroupnoteComponent implements OnInit {
 
  readColor(color, groupid) {
   console.log(groupid, color);
- this.groupnotes.find(x => x.group.id === groupid).group.color = color;
+ this.groups.find(x => x.id === groupid).color = color;
  }
 
- setCompleted() {
-
+ setCompleted(note: Note, group: Group) {
+  this.onSetComplete.emit({note, group});
  }
- setRemove() {
 
+ setRemove(note: Note, group: Group) {
+  this.onSetRemove.emit({note, group});
  }
 }

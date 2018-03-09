@@ -15,18 +15,11 @@ export class NotePreviewComponent implements OnInit {
 
   @Output() addGroup = new EventEmitter;
 
-  // optionsModel: number[];
-  // myOptions: IMultiSelectOption[];
 
   constructor() { }
 
   ngOnInit() {
-    // this.myOptions = this.groups;
   }
-
-  onChange() {
-    // console.log(this.optionsModel);
-}
 
 onAddGroup(note: Note, group: Group) {
   this.addGroup.emit({note, group});
