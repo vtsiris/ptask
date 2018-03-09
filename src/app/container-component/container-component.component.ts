@@ -23,11 +23,12 @@ export class ContainerComponentComponent implements OnInit {
 
   onCreateGroup(groupTitle: string) {
     this.groupId += 1;
-    // tslint:disable-next-line:no-shadowed-variable
-    const group = new Group();
-    group.id = this.groupId;
-    group.name = groupTitle;
-    this.groups.push(group);
+
+    const nGroup = new Group();
+    nGroup.id = this.groupId;
+    nGroup.name = groupTitle;
+    nGroup.notes = [];
+    this.groups.push(nGroup);
     console.log(groupTitle);
   }
 
@@ -48,31 +49,26 @@ export class ContainerComponentComponent implements OnInit {
 
   onAddNoteToGroup(obje: any) {
    const groupSel = this.groups.find(c => c.id === obje.group.id);
-   console.log('onAddNoteToGroup' + groupSel);
     const note = new Note();
     note.id = obje.note.id;
     note.title = obje.note.title;
     note.description = obje.note.description;
     groupSel.notes.push(note);
 
-
-    // if (groupSel.notes.findIndex(c => c.id === obje.note.id) < 0 ) {
-    //   groupSel.notes.push(obje.note);
-    // }
-
   }
 
   onSetCompleted(obje: any) {
     this.completedNotes += 1;
     const groupSel = this.groups.find(c => c.id === obje.group.id);
-    groupSel.notes.splice(obje.note.id, 1);
+    const noteIndex = groupSel.notes.findIndex(c => c.id === obje.note.id);
+
+    groupSel.notes.splice(noteIndex, 1);
   }
 
   onSetRemoved(obje: any) {
     const groupSel = this.groups.find(c => c.id === obje.group.id);
-    groupSel.notes.splice(obje.note.id, 1);
+    const noteIndex = groupSel.notes.findIndex(c => c.id === obje.note.id);
+    groupSel.notes.splice(noteIndex, 1);
 
-    // const noteSel = groupSel.notes.find(c => c.id === obje.note.id);
-    // groups.find(c => c.id === obje.group.id).notes.find(c => c.id === obje.note.id);
   }
 }

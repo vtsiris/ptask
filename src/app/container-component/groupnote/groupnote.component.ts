@@ -9,10 +9,8 @@ import { Group, Note } from '../../models/note.model';
 })
 export class GroupnoteComponent implements OnInit {
 
-  // tslint:disable-next-line:no-output-on-prefix
-  @Output() onSetComplete = new EventEmitter;
-  // tslint:disable-next-line:no-output-on-prefix
-  @Output() onSetRemove = new EventEmitter;
+  @Output() setCompleted = new EventEmitter;
+  @Output() setRemoved = new EventEmitter;
   @Input() groups: Group[];
 
   constructor() { }
@@ -25,11 +23,11 @@ export class GroupnoteComponent implements OnInit {
  this.groups.find(x => x.id === groupid).color = color;
  }
 
- setCompleted(note: Note, group: Group) {
-  this.onSetComplete.emit({note, group});
+ setComplete(note: Note, group: Group) {
+  this.setCompleted.emit({note, group});
  }
 
  setRemove(note: Note, group: Group) {
-  this.onSetRemove.emit({note, group});
+  this.setRemoved.emit({note, group});
  }
 }
