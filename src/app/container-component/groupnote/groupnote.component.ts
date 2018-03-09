@@ -17,9 +17,9 @@ export class GroupnoteComponent implements OnInit {
   ngOnInit() {
   }
 
-  // readColor(value) {
-  //   this.color = value.srcElement.style['background-color'];
-  //   console.log(value.srcElement.stylep['bacgkround-color']);
-  // }
+ readColor(color, groupid) {
+  console.log(groupid, color);
+ this.groupnotes.find(x => x.group.id === groupid).group.color = color;
+ }
 
 }

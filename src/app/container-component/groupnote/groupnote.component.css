@@ -1,4 +1,4 @@
-/* .green
+.green
 {
   background-color: green;
 }
@@ -11,4 +11,12 @@
 .red
 {
   background-color: red;
-} */
+}
+
+.dot {
+  height: 25px;
+  width: 25px;
+  background-color: transparent;
+  border-radius: 40%;
+  /* display: inline-block; */
+}
