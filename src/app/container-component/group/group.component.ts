@@ -8,6 +8,7 @@ import { Group } from '../../models/note.model';
 })
 export class GroupComponent implements OnInit {
 
+@Input() completedNotes: number;
 @Input() groups: Group[];
 @Output() createGroup = new EventEmitter;
 
