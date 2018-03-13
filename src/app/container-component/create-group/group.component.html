@@ -8,14 +8,16 @@
     </div>
     <div class="row" *ngIf="!addGroup">
       <div class="col-md-12">
+        <form #groupForm="ngForm">
         <div class="list-group">
           <div class="input-group">
-            <input type="text" class="form-control" placeholder="Group Title" [(ngModel)]="groupTitle">
+            <input type="text" class="form-control" placeholder="Group Title" required [(ngModel)]="groupTitle" name="title">
           </div>
           <br>
-          <button type="button" class="btn btn-outline-primary" (click)="onCreateGroup(groupTitle)">Create</button>
+          <button type="button" class="btn btn-outline-primary" [disabled]="!groupForm.form.valid" (click)="onCreateGroup(groupTitle)">Create</button>
           <br>
         </div>
+      </form>
       </div>
       <div class="col-md-12">
           <h6>Completed Notes are: {{completedNotes}}</h6>

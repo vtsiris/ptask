@@ -1,5 +1,5 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
-import { GroupComponent } from '../group/group.component';
+import { GroupComponent } from '../create-group/group.component';
 import { Group, Note } from '../../models/note.model';
 
 @Component({
