@@ -1,16 +1,16 @@
 <div class="container">
   <div class="row">
-    <div class="col-md-12 text-center">
-      <div class="list-group" *ngIf="!addNote">
+    <div class="col-md-12 ">
+      <div class="list-group text-center" *ngIf="!addNote">
         <div class="input-group input-group-lg">
-          <input type="text" class="form-control" placeholder="Post Title" [(ngModel)] = "postTitle">
+          <input type="text" class="form-control" placeholder="Note Title" [(ngModel)] = "noteTitle">
         </div>
         <br>
         <div class="input-group input-group-lg">
-          <input type="text" class="form-control" style="height: 200px" placeholder="Post Description"  [(ngModel)]= "postDescription">
+          <input type="text" class="form-control" style="height: 200px" placeholder="Note Description"  [(ngModel)]= "noteDescription">
         </div>
         <br>
-        <button type="button" class="btn btn-outline-primary" (click)="onCreateNote(postTitle,postDescription);">Create</button>
+        <button type="button" class="btn btn-outline-primary" (click)="onCreateNote(noteTitle,noteDescription);">Create</button>
         <br>
       </div>
     </div>

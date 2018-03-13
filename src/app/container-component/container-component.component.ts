@@ -42,8 +42,8 @@ export class ContainerComponentComponent implements OnInit {
     this.noteId += 1;
     const note = new Note();
     note.id = this.noteId;
-    note.title = obje.postTitle;
-    note.description = obje.postDescription;
+    note.title = obje.noteTitle;
+    note.description = obje.noteDescription;
     this.notes.push(note);
     console.log(this.notes);
   }
