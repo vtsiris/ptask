@@ -1,21 +1,23 @@
 <div class="container">
   <div class="row">
-    <div class="col-md-12 ">
+    <div class="col-md-12" *ngIf="!addNote">
+      <h3>Create a Note:</h3>
       <form #noteForm="ngForm">
-      <div class="list-group text-center" *ngIf="!addNote">
-        <div class="input-group input-group-lg">
-          <input type="text" class="form-control" placeholder="Note Title" required [(ngModel)]="noteTitle" name="title">
+        <div class="list-group text-center">
+          <div class="input-group input-group-lg">
+            <input type="text" class="form-control" placeholder="Note Title" required [(ngModel)]="noteTitle" name="title">
+          </div>
+          <br>
+          <div class="input-group input-group-lg">
+            <textarea type="text" class="form-control" style="height: 200px" placeholder="Note Description" required [(ngModel)]="noteDescription"
+              name="description">
+            </textarea>
+          </div>
+          <br>
+          <button type="button" class="btn btn-outline-primary" [disabled]="!noteForm.form.valid" (click)="onCreateNote(noteTitle,noteDescription);">Create</button>
+          <br>
         </div>
-        <br>
-        <div class="input-group input-group-lg">
-          <textarea type="text" class="form-control" style="height: 200px" placeholder="Note Description" required [(ngModel)]="noteDescription" name="description">
-          </textarea>
-        </div>
-        <br>
-        <button type="button" class="btn btn-outline-primary" [disabled]="!noteForm.form.valid" (click)="onCreateNote(noteTitle,noteDescription);">Create</button>
-        <br>
-      </div>
-    </form>
+      </form>
     </div>
   </div>
 </div>

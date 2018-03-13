@@ -10,6 +10,7 @@ export class ContainerComponentComponent implements OnInit {
 
   showGroups = false;
   addNote = true;
+  note = false;
   notes: Note[] = [];
   noteId = 0;
   groups: Group[] = [];
@@ -27,6 +28,7 @@ export class ContainerComponentComponent implements OnInit {
       this.addNote = false;
       this.showGroups = true;
     }
+
   onCreateGroup(groupTitle: string) {
     this.groupId += 1;
 
@@ -45,6 +47,7 @@ export class ContainerComponentComponent implements OnInit {
     note.title = obje.noteTitle;
     note.description = obje.noteDescription;
     this.notes.push(note);
+    this.note = true;
     console.log(this.notes);
   }
 
@@ -55,7 +58,7 @@ export class ContainerComponentComponent implements OnInit {
     note.id = obje.note.id;
     note.title = obje.note.title;
     note.description = obje.note.description;
-   groupSel.notes.find(x => x.id === note.id) ? alert('Already selected') : groupSel.notes.push(note) ;
+   groupSel.notes.find(x => x.id === note.id) ? alert('You have already selected this group!!') : groupSel.notes.push(note) ;
   }
 
   onSetCompleted(obje: any) {

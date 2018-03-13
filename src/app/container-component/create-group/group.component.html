@@ -1,6 +1,8 @@
 <div class="container">
     <div class="row" *ngIf="addGroup">
       <div class="col-md-6">
+      <br>
+      <br>
         <button type="button" class="btn btn-outline-primary" style="float: right;" (click)="onAddGroup()">+ Create a Group</button>
       </div>
       <div class="col-md-6">
@@ -8,6 +10,7 @@
     </div>
     <div class="row" *ngIf="!addGroup">
       <div class="col-md-12">
+          <h3>Create a Group:</h3>
         <form #groupForm="ngForm">
         <div class="list-group">
           <div class="input-group">
