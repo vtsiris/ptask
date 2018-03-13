@@ -14,9 +14,8 @@ export class NoteComponent implements OnInit {
   postTitle = '';
   postDescription = '';
   @Output() createNote = new EventEmitter;
-  @Output() addNoteEmitter = new EventEmitter;
+  @Input() addNote: boolean;
 
-  addNote = true;
 
 
   constructor() {   }
@@ -25,10 +24,6 @@ export class NoteComponent implements OnInit {
 
   }
 
-  onAddNote() {
-    this.addNote = false;
-    this.addNoteEmitter.emit();
-  }
 
   onCreateNote(postTitle: string, postDescription: string) {
     this.createNote.emit({postTitle, postDescription});

@@ -1,10 +1,23 @@
 <app-container-navbar></app-container-navbar>
 
-<app-note (createNote)="onCreateNote($event)" (addNoteEmitter)="onAddNoteEmitter()"></app-note>
+<app-create-note (addNoteEmitter)="onAddNoteEmitter()" [addNote]="addNote"></app-create-note>
 
-<app-group *ngIf="showGroups" [groups]="groups" [completedNotes]="completedNotes" (createGroup)="onCreateGroup($event)"></app-group>
+<div class="container">
+  <div class="row">
+    <div class="col-md-8">
+        <app-note (createNote)="onCreateNote($event)" [addNote]="addNote"></app-note>
+    </div>
 
-<app-note-preview (addGroup)="onAddNoteToGroup($event) "[notes]="notes" [groups]="groups"></app-note-preview>
+    <div class="col-md-4">
+        <app-group *ngIf="showGroups" [groups]="groups" [completedNotes]="completedNotes" (createGroup)="onCreateGroup($event)"></app-group>
+    </div>
+
+
+  </div>
+</div>
+
+
+<app-note-preview (addGroup)="onAddNoteToGroup($event) " [notes]="notes" [groups]="groups"></app-note-preview>
 <br>
 
 <app-groupnote [groups]="groups" (setRemoved)="onSetRemoved($event)" (setCompleted)="onSetCompleted($event)"></app-groupnote>

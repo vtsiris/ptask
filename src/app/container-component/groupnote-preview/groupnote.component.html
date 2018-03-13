@@ -1,0 +1,53 @@
+<div class="container">
+  <div class="row d-inline-block" *ngFor="let group of groups">
+    <div class="col-md-12 ">
+      <div class="col-md-12">
+        <div class="card" [ngStyle]="{'background-color':group.color}">
+          <div class="card-block">
+            <h4 class="card-title text-center" >
+              {{group.name}}
+              <hr>
+            </h4>
+            <div class="card-block" *ngFor="let note of group.notes" >
+              <h6 class="card-title text-center">
+                {{note.title}}
+                <br>
+                <br>
+              </h6>
+              <p class="card-text text-center">
+                {{note.description}}
+              </p>
+              <div class="dropdown d-inline-block">
+                <button class="btn btn-sm btn-outline-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true"
+                  aria-expanded="false">
+                  Choose Action
+                </button>
+                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                  <a class="dropdown-item btn" style="color:#66b966" (click)="setComplete(note,group)">Complete</a>
+                  <a class="dropdown-item btn" style="color:#ee5353" (click)="setRemove(note, group)">Remove</a>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="dropdown d-inline-block text-center">
+            <button class="btn btn-sm btn-outline-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true"
+              aria-expanded="false">
+              Select Color
+            </button>
+            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+              <a class="dropdown-item btn" style="color:rgb(158, 226, 155)" (click)="readColor('#9ee29b',group.id)">
+                Green
+              </a>
+              <a class="dropdown-item btn" style="color:rgb(0, 204, 255)" (click)="readColor('#97d4e4',group.id)">
+                Blue
+              </a>
+              <a class="dropdown-item btn" style="color:#f5ca79" (click)="readColor('#f5ca79',group.id)">
+                Orange
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,25 @@
+<div class="container">
+    <div class="row" *ngIf="addGroup">
+      <div class="col-md-6">
+        <button type="button" class="btn btn-outline-primary" style="float: right;" (click)="onAddGroup()">+ Create a Group</button>
+      </div>
+      <div class="col-md-6">
+      </div>
+    </div>
+    <br>
+    <div class="row" *ngIf="!addGroup">
+      <div class="col-md-12">
+        <div class="list-group">
+          <div class="input-group">
+            <input type="text" class="form-control" placeholder="Group Title" [(ngModel)]="groupTitle">
+          </div>
+          <br>
+          <button type="button" class="btn btn-outline-primary" (click)="onCreateGroup(groupTitle)">Create</button>
+          <br>
+        </div>
+      </div>
+      <div class="col-md-12">
+          <h6>Completed Notes are: {{completedNotes}}</h6>
+        </div>
+    </div>
+  </div>

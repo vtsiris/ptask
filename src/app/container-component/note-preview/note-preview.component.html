@@ -7,12 +7,12 @@
           <hr>
           <p class="card-text text-center">{{note.description}}</p>
           <div class="dropdown" style="float: right;">
-            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true"
+            <button class="btn btn-outline-secondary dropdown-toggle" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true"
               aria-expanded="false">
               Choose Group
             </button>
             <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-              <a class="dropdown-item" type="button" class="btn" *ngFor="let group of groups;" (click)="onAddGroup(note, group)" href="#">{{group.name}}</a>
+              <a class="dropdown-item btn-outline-secondary" *ngFor="let group of groups;" (click)="onAddGroup(note, group)" href="#">{{group.name}}</a>
             </div>
           </div>
         </div>
