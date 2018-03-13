@@ -6,37 +6,43 @@
           <div class="card-block">
             <h4 class="card-title text-center">
               {{group.name}}
+              <hr>
+              <hr>
             </h4>
-            <hr>
             <div class="card-block" *ngFor="let note of group.notes" [ngStyle]="{'background-color':group.color}">
-              <h6 class="card-title">
+              <h6 class="card-title text-center">
                 {{note.title}}
                 <br>
                 <br>
-                <div class="btn-group" style="float: left;">
-                    <button style="background-color:green" type="button" class="btn btn-default" (click)="setComplete(group,note)">✓</button>
-                    <button style="background-color:red" type="button" class="btn btn-default" (click)="setRemove(group, note)">X</button>
-                  </div>
               </h6>
-              <hr>
               <p class="card-text text-center">
                 {{note.description}}
               </p>
-            </div>
-            <div class="btn-group" style="float: right;">
-              <button style="background-color:purple" type="button" class="btn btn-default" (click)="readColor('purple',group.id)">
-                <span class="dot"></span>
-              </button>
-              <button style="background-color:yellow" type="button" class="btn btn-default" (click)="readColor('yellow',group.id)">
-                <span class="dot"></span>
-              </button>
-              <button style="background-color:orange" type="button" class="btn btn-default" (click)="readColor('orange',group.id)">
-                <span class="dot"></span>
-              </button>
-              <hr>
+              <div class="dropdown d-inline-block">
+                <button class="btn btn-sm btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true"
+                  aria-expanded="false">
+                  Choose Action
+                </button>
+                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                  <a class="dropdown-item" style="background-color:green" type="button" class="btn btn-default" (click)="setComplete(note,group)">✓</a>
+                  <a class="dropdown-item" style="background-color:red" type="button" class="btn btn-default" (click)="setRemove(note, group)">X</a>
+                </div>
+              </div>
+              <div class="dropdown d-inline-block">
+                <button class="btn btn-sm btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true"
+                  aria-expanded="false">
+                  Select Color
+                </button>
+                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                  <a class="dropdown-item" style="background-color:purple" type="button" class="btn btn-default" (click)="readColor('purple',group.id)"></a>
+                  <a class="dropdown-item" style="background-color:yellow" type="button" class="btn btn-default" (click)="readColor('yellow',group.id)"></a>
+                  <a class="dropdown-item" style="background-color:orange" type="button" class="btn btn-default" (click)="readColor('orange',group.id)"></a>
+                </div>
+              </div>
             </div>
           </div>
         </div>
       </div>
     </div>
   </div>
+</div>

@@ -11,6 +11,8 @@ import { Group } from '../../models/note.model';
 })
 export class NoteComponent implements OnInit {
 
+  postTitle = '';
+  postDescription = '';
   @Output() createNote = new EventEmitter;
   @Output() addNoteEmitter = new EventEmitter;
 
@@ -30,6 +32,8 @@ export class NoteComponent implements OnInit {
 
   onCreateNote(postTitle: string, postDescription: string) {
     this.createNote.emit({postTitle, postDescription});
+    this.postTitle = '';
+    this.postDescription = '';
   }
 
 }

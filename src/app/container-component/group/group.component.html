@@ -14,20 +14,12 @@
     <div class="col-md-4">
       <div class="list-group">
         <div class="input-group">
-          <input type="text" class="form-control" placeholder="Group Title" #groupTitle>
+          <input type="text" class="form-control" placeholder="Group Title" [(ngModel)]="groupTitle">
         </div>
         <br>
-        <button type="button" class="btn" (click)="onCreateGroup(groupTitle.value)">Create</button>
+        <button type="button" class="btn" (click)="onCreateGroup(groupTitle)">Create</button>
         <br>
       </div>
-      <div class="card" *ngFor="let group of groups">
-        <div class="card-block" >
-          <h5 class="card-title text-center">
-            {{group.name}}
-          </h5>
-        </div>
-      </div>
-      <br>
     </div>
   </div>
 </div>

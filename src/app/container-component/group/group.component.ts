@@ -11,6 +11,7 @@ export class GroupComponent implements OnInit {
 @Input() completedNotes: number;
 @Input() groups: Group[];
 @Output() createGroup = new EventEmitter;
+groupTitle = '';
 
 addGroup = true;
 
@@ -25,6 +26,7 @@ addGroup = true;
 
   onCreateGroup(groupTitle: string) {
     this.createGroup.emit(groupTitle);
+    this.groupTitle = '';
   }
 
 }

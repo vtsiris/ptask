@@ -8,6 +8,7 @@ import { NoteComponent } from './container-component/note/note.component';
 import { GroupComponent } from './container-component/group/group.component';
 import { NotePreviewComponent } from './container-component/note-preview/note-preview.component';
 import { GroupnoteComponent } from './container-component/groupnote/groupnote.component';
+import { ContainerNavbarComponent } from './container-component/container-navbar/container-navbar.component';
 
 
 @NgModule({
@@ -18,6 +19,7 @@ import { GroupnoteComponent } from './container-component/groupnote/groupnote.co
     GroupComponent,
     NotePreviewComponent,
     GroupnoteComponent,
+    ContainerNavbarComponent,
   ],
 
   imports: [

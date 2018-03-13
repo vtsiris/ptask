@@ -1,3 +1,5 @@
+<app-container-navbar></app-container-navbar>
+
 <app-note (createNote)="onCreateNote($event)" (addNoteEmitter)="onAddNoteEmitter()"></app-note>
 
 <app-group *ngIf="showGroups" [groups]="groups" [completedNotes]="completedNotes" (createGroup)="onCreateGroup($event)"></app-group>

@@ -3,18 +3,17 @@
     <div class="col-md-12 text-center">
       <h3>Create a Note:</h3>
       <br>
-      <br>
       <button type="button" class="btn btn-primary" *ngIf="addNote" (click)="onAddNote()">+</button>
       <div class="list-group" *ngIf="!addNote">
         <div class="input-group input-group-lg">
-          <input type="text" class="form-control" placeholder="Post Title"  #postTitle>
+          <input type="text" class="form-control" placeholder="Post Title" [(ngModel)] = "postTitle">
         </div>
         <br>
         <div class="input-group input-group-lg">
-          <input type="text" class="form-control" placeholder="Post Description"  #postDescription>
+          <input type="text" class="form-control" placeholder="Post Description"  [(ngModel)]= "postDescription">
         </div>
         <br>
-        <button type="button" class="btn btn-primary" (click)="onCreateNote(postTitle.value,postDescription.value)">Create</button>
+        <button type="button" class="btn btn-primary" (click)="onCreateNote(postTitle,postDescription);">Create</button>
         <br>
       </div>
     </div>
