@@ -8,7 +8,8 @@
         </div>
         <br>
         <div class="input-group input-group-lg">
-          <input type="text" class="form-control" style="height: 200px" placeholder="Note Description" required [(ngModel)]="noteDescription" name="description">
+          <textarea type="text" class="form-control" style="height: 200px" placeholder="Note Description" required [(ngModel)]="noteDescription" name="description">
+          </textarea>
         </div>
         <br>
         <button type="button" class="btn btn-outline-primary" [disabled]="!noteForm.form.valid" (click)="onCreateNote(noteTitle,noteDescription);">Create</button>
