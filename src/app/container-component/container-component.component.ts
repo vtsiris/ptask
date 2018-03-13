@@ -49,12 +49,11 @@ export class ContainerComponentComponent implements OnInit {
 
   onAddNoteToGroup(obje: any) {
    const groupSel = this.groups.find(c => c.id === obje.group.id);
-    const note = new Note();
+   const note = new Note();
     note.id = obje.note.id;
     note.title = obje.note.title;
     note.description = obje.note.description;
-    groupSel.notes.push(note);
-
+   groupSel.notes.find(x => x.id === note.id) ? alert('Already selected') : groupSel.notes.push(note) ;
   }
 
   onSetCompleted(obje: any) {
