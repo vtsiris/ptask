@@ -9,6 +9,7 @@ import {Note, Group} from '../models/note.model';
 export class ContainerComponentComponent implements OnInit {
 
   showGroups = false;
+  showGroupsCreation = false;
   addNote = true;
   note = false;
   notes: Note[] = [];
@@ -37,6 +38,7 @@ export class ContainerComponentComponent implements OnInit {
     nGroup.name = groupTitle;
     nGroup.notes = [];
     this.groups.push(nGroup);
+    this.showGroupsCreation = true;
     console.log(groupTitle);
   }
 

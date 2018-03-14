@@ -9,7 +9,7 @@
           </div>
           <br>
           <div class="input-group input-group-lg">
-            <textarea type="text" class="form-control" style="height: 200px" placeholder="Note Description" required [(ngModel)]="noteDescription"
+            <textarea type="text" class="form-control" style="height: 200px" (keydown.enter)="onCreateNote(noteTitle,noteDescription);" placeholder="Note Description" required [(ngModel)]="noteDescription"
               name="description">
             </textarea>
           </div>

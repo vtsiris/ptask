@@ -14,7 +14,7 @@
         <form #groupForm="ngForm">
         <div class="list-group">
           <div class="input-group">
-            <input type="text" class="form-control" placeholder="Group Title" required [(ngModel)]="groupTitle" name="title">
+            <input type="text" class="form-control" placeholder="Group Title" (keydown.enter)="onCreateGroup(groupTitle)" required [(ngModel)]="groupTitle" name="title">
           </div>
           <br>
           <button type="button" class="btn btn-outline-primary" [disabled]="!groupForm.form.valid" (click)="onCreateGroup(groupTitle)">Create</button>
