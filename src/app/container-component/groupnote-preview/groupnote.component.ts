@@ -13,6 +13,7 @@ export class GroupnoteComponent implements OnInit {
   @Output() setRemoved = new EventEmitter;
   @Input() groups: Group[];
 
+
   constructor() { }
 
   ngOnInit() {
@@ -30,4 +31,5 @@ export class GroupnoteComponent implements OnInit {
  setRemove(note: Note, group: Group) {
   this.setRemoved.emit({note, group});
  }
+
 }
