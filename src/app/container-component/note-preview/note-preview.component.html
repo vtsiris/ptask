@@ -1,7 +1,7 @@
 <div class="container">
   <div class="row">
     <div class="col-md-12">
-      <h3 *ngIf="note">Notes: </h3>
+      <h3 *ngIf="showNotes">Notes: </h3>
       <div class="card mb-2" *ngFor="let note of notes">
         <div class="card-block">
           <h4 class="card-title text-center">{{note.title}}</h4>

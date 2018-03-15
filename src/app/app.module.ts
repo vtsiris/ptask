@@ -10,6 +10,7 @@ import { NotePreviewComponent } from './container-component/note-preview/note-pr
 import { GroupnoteComponent } from './container-component/groupnote-preview/groupnote.component';
 import { ContainerNavbarComponent } from './container-component/container-navbar/container-navbar.component';
 import { CreateNoteComponent } from './container-component/create-note-intro/create-note.component';
+import { NoteService } from './container-component/note.service';
 
 
 @NgModule({
@@ -29,7 +30,7 @@ import { CreateNoteComponent } from './container-component/create-note-intro/cre
     FormsModule,
     MultiselectDropdownModule,
   ],
-  providers: [],
+  providers: [NoteService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -12,7 +12,7 @@ export class NotePreviewComponent implements OnInit {
 
   @Input() notes: Note[];
   @Input() groups: Group[];
-  @Input() note: boolean;
+  @Input() showNotes: boolean;
 
   @Output() addGroup = new EventEmitter;
 

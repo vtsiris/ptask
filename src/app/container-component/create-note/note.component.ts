@@ -1,6 +1,7 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { IMultiSelectOption } from 'angular-2-dropdown-multiselect';
-import { Group } from '../../models/note.model';
+import { Group, Note } from '../../models/note.model';
+import { NoteService } from '../note.service';
 
 
 
@@ -15,10 +16,11 @@ export class NoteComponent implements OnInit {
   noteDescription = '';
   @Output() createNote = new EventEmitter;
   @Input() addNote: boolean;
+  @Input() notes: Note[];
 
 
 
-  constructor() {   }
+  constructor(private noteService: NoteService) {   }
 
   ngOnInit() {
 
@@ -26,7 +28,8 @@ export class NoteComponent implements OnInit {
 
 
   onCreateNote(noteTitle: string, noteDescription: string) {
-    this.createNote.emit({noteTitle, noteDescription});
+    this.noteService.createNote(noteTitle, noteDescription);
+    // this.createNote.emit({noteTitle, noteDescription});
     this.noteTitle = '';
     this.noteDescription = '';
   }

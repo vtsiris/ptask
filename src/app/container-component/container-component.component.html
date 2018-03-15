@@ -5,11 +5,11 @@
 <div class="container">
   <div class="row">
     <div class="col-md-8">
-        <app-note (createNote)="onCreateNote($event)" [addNote]="addNote"></app-note>
+        <app-note [addNote]="addNote"></app-note>
     </div>
 
     <div class="col-md-4">
-        <app-group *ngIf="showGroups" [groups]="groups" [completedNotes]="completedNotes" (createGroup)="onCreateGroup($event)"></app-group>
+        <app-group *ngIf="showGroups" [groups]="groups" (createGroup)="onCreateGroup($event)"></app-group>
     </div>
 
 
@@ -17,7 +17,7 @@
 </div>
 
 
-<app-note-preview (addGroup)="onAddNoteToGroup($event)" [note]="note" [notes]="notes" [groups]="groups"></app-note-preview>
+<app-note-preview (addGroup)="onAddNoteToGroup($event)" [showNotes]="showNotes" [notes]="notes" [groups]="groups"></app-note-preview>
 <br>
 
 <div class="container">
@@ -28,4 +28,4 @@
     </div>
   </div>
 </div>
-<app-groupnote [groups]="groups" (setRemoved)="onSetRemoved($event)" (setCompleted)="onSetCompleted($event)"></app-groupnote>
+<app-groupnote [groups]="groups"></app-groupnote>

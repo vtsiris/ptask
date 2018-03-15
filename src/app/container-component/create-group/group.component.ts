@@ -1,5 +1,6 @@
 import { Component, OnInit, Output, EventEmitter, Input } from '@angular/core';
 import { Group } from '../../models/note.model';
+import { NoteService } from '../note.service';
 
 @Component({
   selector: 'app-group',
@@ -8,16 +9,17 @@ import { Group } from '../../models/note.model';
 })
 export class GroupComponent implements OnInit {
 
-@Input() completedNotes: number;
-@Input() groups: Group[];
-@Output() createGroup = new EventEmitter;
-groupTitle = '';
+  @Input() groups: Group[];
+  @Output() createGroup = new EventEmitter;
+  groupTitle = '';
+  // completedNotes: number;
 
-addGroup = true;
+  addGroup = true;
 
-  constructor() { }
+  constructor(public noteService: NoteService) { }
 
   ngOnInit() {
+    // this.completedNotes = this.noteService.getCompletedNotes();
   }
 
   onAddGroup() {

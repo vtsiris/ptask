@@ -1,6 +1,7 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { GroupComponent } from '../create-group/group.component';
 import { Group, Note } from '../../models/note.model';
+import { NoteService } from '../note.service';
 
 @Component({
   selector: 'app-groupnote',
@@ -12,9 +13,10 @@ export class GroupnoteComponent implements OnInit {
   @Output() setCompleted = new EventEmitter;
   @Output() setRemoved = new EventEmitter;
   @Input() groups: Group[];
+  @Input() notes: Note[];
 
 
-  constructor() { }
+  constructor(private noteService: NoteService) { }
 
   ngOnInit() {
   }
@@ -25,11 +27,11 @@ export class GroupnoteComponent implements OnInit {
  }
 
  setComplete(note: Note, group: Group) {
-  this.setCompleted.emit({note, group});
+  this.noteService.setCompleted(note, group);
  }
 
  setRemove(note: Note, group: Group) {
-  this.setRemoved.emit({note, group});
+  this.noteService.setRemoved(note, group);
  }
 
 }
