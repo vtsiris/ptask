@@ -28,8 +28,7 @@ export class NoteComponent implements OnInit {
 
 
   onCreateNote(noteTitle: string, noteDescription: string) {
-    this.noteService.createNote(noteTitle, noteDescription);
-    // this.createNote.emit({noteTitle, noteDescription});
+    this.createNote.emit({noteTitle, noteDescription});
     this.noteTitle = '';
     this.noteDescription = '';
   }

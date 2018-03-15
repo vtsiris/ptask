@@ -27,11 +27,11 @@ export class GroupnoteComponent implements OnInit {
  }
 
  setComplete(note: Note, group: Group) {
-  this.noteService.setCompleted(note, group);
+  this.setCompleted.emit({note, group});
  }
 
  setRemove(note: Note, group: Group) {
-  this.noteService.setRemoved(note, group);
+  this.setRemoved.emit({note, group});
  }
 
 }

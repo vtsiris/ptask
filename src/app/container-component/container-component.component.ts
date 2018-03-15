@@ -19,6 +19,7 @@ export class ContainerComponentComponent implements OnInit {
   // groups: Group[] = [];
   groups: Group[];
   groupId = 0;
+  completedNotes = 0;
 
 
 
@@ -63,6 +64,25 @@ export class ContainerComponentComponent implements OnInit {
     note.title = obje.note.title;
     note.description = obje.note.description;
    groupSel.notes.find(x => x.id === note.id) ? alert('You have already selected this group!!') : groupSel.notes.push(note) ;
+  }
+
+  createNote(obje: any) {
+    const noteTitle = obje.noteTitle;
+    const noteDescription = obje.noteDescription;
+    this.noteService.createNote(noteTitle, noteDescription);
+  }
+
+  setCompleted(obje: any) {
+    this.completedNotes += 1;
+    const note = obje.note;
+    const group_ = obje.group;
+    this.noteService.setCompleted(note, group_);
+  }
+
+  setRemoved(obje: any) {
+    const note = obje.note;
+    const group_ = obje.group;
+    this.noteService.setRemoved(note, group_);
   }
 
 }

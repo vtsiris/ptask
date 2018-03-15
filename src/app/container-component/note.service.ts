@@ -11,7 +11,6 @@ export class NoteService {
   private notes: Note[] = [];
   private noteId = 0;
   showNotes = false;
-  completedNotes = 0;
   private groups: Group[] = [];
 
   // make a method to access it from outside.
@@ -32,9 +31,7 @@ export class NoteService {
     return this.showNotes;
   }
 
-  getCompletedNotes() {
-    return this.completedNotes;
-  }
+
 
   // I emit the copy of the original array
   createNote(noteTitle, noteDescription) {
@@ -50,10 +47,8 @@ export class NoteService {
   }
 
   setCompleted(note, group) {
-    this.completedNotes += 1;
     const groupSel = this.groups.find(c => c.id === group.id);
     const noteIndex = groupSel.notes.findIndex(c => c.id === note.id);
-    console.log(this.completedNotes);
 
     groupSel.notes.splice(noteIndex, 1);
   }

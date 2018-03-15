@@ -9,9 +9,11 @@ import { NoteService } from '../note.service';
 })
 export class GroupComponent implements OnInit {
 
+  @Input() completedNotes: number;
   @Input() groups: Group[];
   @Output() createGroup = new EventEmitter;
   groupTitle = '';
+
   // completedNotes: number;
 
   addGroup = true;
